@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
 /*//imports
@@ -62,7 +61,91 @@ function App() {
 
 export default App;*/
 
+/*class Count extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { count: this.props.countInit }
+
+    setInterval(() => {
+      this.setState({ count: ++this.state.count })
+    }, 1000)
+  }
+
+  render() {
+    return <NumberCount number={this.state.count} />
+  }
+}
+
+Count.defaultProps = {
+  countInit: 0
+}
+
+class NumberCount extends Component {
+  render() {
+    return (
+      <p>{this.props.number}</p>
+    )
+  }
+}
 
 class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>hola</h1>
+        <Count countInit={100} />
+      </div>
 
+    )
+  }
+}
+
+export default App*/
+
+/*import ConditionalComponent from './components/ConditionalComponent';
+
+export default class conditionalTest extends Component {
+  render() {
+    return (
+      <ConditionalComponent />
+    )
+  }
+}*/
+
+
+/*export default class ListTest extends Component {
+  render() {
+    const numbers = [1, 2, 3, 4]
+    return (
+      <div>
+        {numbers.map((number, idx) => <p key={idx}>Soy el numero {number}</p>)}
+      </div>
+    )
+  }
+}*/
+
+import cars from './assets/data/cars.json'
+
+class ListCar extends Component {
+  render() {
+    const { car } = this.props
+
+    return (
+      <li>
+        <p> El carro <strong>{car.name}</strong> tiene {car.cc} CC</p>
+      </li>
+
+    )
+  }
+}
+
+export default class ObjectsJson extends Component {
+  render() {
+    return (
+      <ul>
+        {cars.map((car, idx) => <ListCar key={idx} car={car} />)}
+      </ul>
+    )
+  }
 }
